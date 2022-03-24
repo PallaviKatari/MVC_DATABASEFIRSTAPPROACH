@@ -16,5 +16,12 @@ namespace MVC_DFA.Controllers
             List<Employee> employees = db.Employees.ToList();
             return View(employees);
         }
+
+        public ActionResult Details(int id)
+        {
+            MVCDBContext db= new MVCDBContext();
+            Employee emp=db.Employees.FirstOrDefault(x=>x.EmpID==id);
+            return View(emp);
+        }
     }
 }
